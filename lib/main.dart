@@ -1,16 +1,11 @@
+import 'package:doc_doc/core/helpers/setup_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() {
+import 'doc_app.dart';
+
+void main() async {
+  SetupManager.setupSystemUI();
+  await ScreenUtil.ensureScreenSize();
   runApp(const DocDocApp());
-}
-
-class DocDocApp extends StatelessWidget {
-  const DocDocApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-    );
-  }
 }
