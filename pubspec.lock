@@ -320,8 +320,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.9.3"
-<<<<<<< HEAD
-=======
   flutter_svg:
     dependency: "direct main"
     description:
@@ -330,7 +328,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.16"
->>>>>>> e519708ea1b4c35fc8cbf91bab147b318c1448cd
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -533,8 +530,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.0"
-<<<<<<< HEAD
-=======
   path_parsing:
     dependency: transitive
     description:
@@ -543,7 +538,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
->>>>>>> e519708ea1b4c35fc8cbf91bab147b318c1448cd
   path_provider:
     dependency: transitive
     description:
@@ -564,17 +558,10 @@ packages:
     dependency: transitive
     description:
       name: path_provider_foundation
-<<<<<<< HEAD
       sha256: "4843174df4d288f5e29185bd6e72a6fbdf5a4a4602717eed565497429f179942"
       url: "https://pub.dev"
     source: hosted
     version: "2.4.1"
-=======
-      sha256: f234384a3fdd67f989b4d54a5d73ca2a6c422fa55ae694381ae0f4375cd1ea16
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.4.0"
->>>>>>> e519708ea1b4c35fc8cbf91bab147b318c1448cd
   path_provider_linux:
     dependency: transitive
     description:
@@ -892,8 +879,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.5.1"
-<<<<<<< HEAD
-=======
   vector_graphics:
     dependency: transitive
     description:
@@ -918,7 +903,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.16"
->>>>>>> e519708ea1b4c35fc8cbf91bab147b318c1448cd
   vector_math:
     dependency: transitive
     description:
