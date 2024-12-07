@@ -1,5 +1,6 @@
-import 'package:doc_doc/core/theming/colors_manager.dart';
 import 'package:flutter/material.dart';
+
+import 'colors_manager.dart';
 
 class ThemesManager {
   static ThemeData lightTheme = ThemeData(
