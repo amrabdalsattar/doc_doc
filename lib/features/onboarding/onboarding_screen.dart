@@ -1,7 +1,7 @@
-import 'package:doc_doc/core/helpers/extensions.dart';
-import 'package:doc_doc/core/widgets/custom_button.dart';
-import 'package:doc_doc/features/onboarding/widgets/doc_logo_and_name.dart';
-import 'package:doc_doc/features/onboarding/widgets/titled_doctor_image.dart';
+import '../../core/helpers/extensions.dart';
+import '../../core/widgets/custom_button.dart';
+import 'widgets/doc_logo_and_name.dart';
+import 'widgets/titled_doctor_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
