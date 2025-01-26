@@ -1,8 +1,8 @@
-import 'package:doc_doc/core/theming/colors_manager.dart';
-import 'package:doc_doc/core/theming/text_styles.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/helpers/spacing.dart';
+import '../../../../../core/theming/colors_manager.dart';
+import '../../../../../core/theming/text_styles.dart';
 
 class ValidationRow extends StatelessWidget {
   final bool hasValidated;

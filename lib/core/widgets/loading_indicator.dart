@@ -1,4 +1,4 @@
-import 'package:doc_doc/core/theming/colors_manager.dart';
+import '../theming/colors_manager.dart';
 import 'package:flutter/material.dart';
 
 class LoadingIndicator extends StatelessWidget {

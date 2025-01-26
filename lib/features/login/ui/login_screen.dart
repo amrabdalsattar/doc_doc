@@ -1,16 +1,18 @@
-import 'package:doc_doc/core/helpers/spacing.dart';
-import 'package:doc_doc/core/theming/text_styles.dart';
-import 'package:doc_doc/core/widgets/custom_button.dart';
-import 'package:doc_doc/core/widgets/welcome_header.dart';
-import 'package:doc_doc/features/login/data/models/login_request_body.dart';
-import 'package:doc_doc/features/login/logic/cubit/login_cubit.dart';
-import 'package:doc_doc/features/login/ui/widgets/already_have_account_text.dart';
-import 'package:doc_doc/features/login/ui/widgets/email_and_password.dart';
-import 'package:doc_doc/features/login/ui/widgets/login_bloc_listener.dart';
-import 'package:doc_doc/features/login/ui/widgets/terms_and_conditions_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../core/helpers/extensions.dart';
+import '../../../core/helpers/spacing.dart';
+import '../../../core/routing/routes.dart';
+import '../../../core/theming/text_styles.dart';
+import '../../../core/widgets/actionable_text_row.dart';
+import '../../../core/widgets/custom_button.dart';
+import '../../../core/widgets/welcome_header.dart';
+import '../logic/cubit/login_cubit.dart';
+import 'widgets/email_and_password.dart';
+import 'widgets/login_bloc_listener.dart';
+import 'widgets/terms_and_conditions_text.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -41,22 +43,19 @@ class LoginScreen extends StatelessWidget {
               CustomButton(
                 title: 'Login',
                 onPressed: () {
-                  context.read<LoginCubit>().emitLoginStates(
-                        LoginRequestBody(
-                          email:
-                              context.read<LoginCubit>().emailController.text,
-                          password: context
-                              .read<LoginCubit>()
-                              .passwordController
-                              .text,
-                        ),
-                      );
+                  context.read<LoginCubit>().emitLoginStates();
                 },
               ),
               verticalSpace(16),
               const TermsAndConditionsText(),
               verticalSpace(60),
-              const AlreadyHaveAccountText(),
+              ActionableTextRow(
+                text: "Don't have an account?",
+                actionText: 'SignUp',
+                onTap: () {
+                  context.pushNamed(Routes.signup);
+                },
+              ),
               const LoginBlocListener(),
             ],
           ),

@@ -1,12 +1,11 @@
-import 'package:doc_doc/core/helpers/app_regex.dart';
-import 'package:doc_doc/features/login/logic/cubit/login_cubit.dart';
-import 'package:doc_doc/features/login/ui/widgets/password_validations/password_validations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
+import '../../logic/cubit/login_cubit.dart';
 
 class EmailAndPassword extends StatefulWidget {
   const EmailAndPassword({super.key});
@@ -17,35 +16,6 @@ class EmailAndPassword extends StatefulWidget {
 
 class _EmailAndPasswordState extends State<EmailAndPassword> {
   bool isObscureText = true;
-  late TextEditingController passwordController;
-  late TextEditingController emailController;
-
-  bool hasLowerCase = false;
-  bool hasUpperCase = false;
-  bool hasNumber = false;
-  bool hasSpecialCharacters = false;
-  bool hasMinLength = false;
-
-  @override
-  void initState() {
-    super.initState();
-    passwordController = context.read<LoginCubit>().passwordController;
-    emailController = context.read<LoginCubit>().emailController;
-    setUpPasswordControllerListener();
-  }
-
-  void setUpPasswordControllerListener() {
-    passwordController.addListener(() {
-      setState(() {
-        hasLowerCase = AppRegex.hasLowerCase(passwordController.text);
-        hasUpperCase = AppRegex.hasUpperCase(passwordController.text);
-        hasNumber = AppRegex.hasNumber(passwordController.text);
-        hasSpecialCharacters =
-            AppRegex.hasSpecialCharacter(passwordController.text);
-        hasMinLength = AppRegex.hasMinLength(passwordController.text);
-      });
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +24,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
       child: Column(
         children: [
           CustomTextFormField(
-            controller: emailController,
+            controller: context.read<LoginCubit>().emailController,
             hintText: 'Email',
             keyboardType: TextInputType.emailAddress,
             validator: (value) {
@@ -67,7 +37,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           ),
           verticalSpace(16),
           CustomTextFormField(
-            controller: passwordController,
+            controller: context.read<LoginCubit>().passwordController,
             hintText: 'Password',
             isObscure: isObscureText,
             suffixIcon: InkWell(
@@ -87,27 +57,14 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
                       color: ColorsManager.primaryColor),
             ),
             validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Password is required';
+              if (value == null || value.isEmpty || value.length < 8) {
+                return 'Please enter a valid password';
               }
             },
           ),
           verticalSpace(24),
-          PasswordValidations(
-              hasLowerCase: hasLowerCase,
-              hasUpperCase: hasUpperCase,
-              hasNumber: hasNumber,
-              hasSpecialCharacters: hasSpecialCharacters,
-              hasMinLength: hasMinLength)
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    passwordController.dispose();
-    emailController.dispose();
-    super.dispose();
   }
 }
