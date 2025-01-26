@@ -1,6 +1,7 @@
-import 'package:doc_doc/core/helpers/spacing.dart';
-import 'package:doc_doc/features/login/ui/widgets/password_validations/validation_row.dart';
 import 'package:flutter/widgets.dart';
+
+import '../../../../../core/helpers/spacing.dart';
+import 'validation_row.dart';
 
 class PasswordValidations extends StatelessWidget {
   final bool hasLowerCase;

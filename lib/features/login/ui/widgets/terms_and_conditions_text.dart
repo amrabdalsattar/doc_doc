@@ -1,5 +1,6 @@
-import 'package:doc_doc/core/theming/text_styles.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/theming/text_styles.dart';
 
 class TermsAndConditionsText extends StatelessWidget {
   const TermsAndConditionsText({super.key});
