@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/helpers/extensions.dart';
@@ -7,11 +6,9 @@ import '../../../core/helpers/spacing.dart';
 import '../../../core/routing/routes.dart';
 import '../../../core/theming/text_styles.dart';
 import '../../../core/widgets/actionable_text_row.dart';
-import '../../../core/widgets/custom_button.dart';
 import '../../../core/widgets/welcome_header.dart';
-import '../logic/cubit/login_cubit.dart';
 import 'widgets/email_and_password.dart';
-import 'widgets/login_bloc_listener.dart';
+import 'widgets/login_button_bloc_consumer.dart';
 import 'widgets/terms_and_conditions_text.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -40,12 +37,7 @@ class LoginScreen extends StatelessWidget {
                 textAlign: TextAlign.end,
               ),
               verticalSpace(41),
-              CustomButton(
-                title: 'Login',
-                onPressed: () {
-                  context.read<LoginCubit>().emitLoginStates();
-                },
-              ),
+              const LoginButtonBlocConsumer(),
               verticalSpace(16),
               const TermsAndConditionsText(),
               verticalSpace(60),
@@ -56,7 +48,6 @@ class LoginScreen extends StatelessWidget {
                   context.pushNamed(Routes.signup);
                 },
               ),
-              const LoginBlocListener(),
             ],
           ),
         ),

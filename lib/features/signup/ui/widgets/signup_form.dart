@@ -1,12 +1,12 @@
-import '../../../../core/helpers/app_regex.dart';
-import '../../../../core/widgets/custom_text_form_field.dart';
-import '../../logic/cubit/signup_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/colors_manager.dart';
+import '../../../../core/widgets/custom_text_form_field.dart';
 import '../../../login/ui/widgets/password_validations/password_validations.dart';
+import '../../logic/cubit/signup_cubit.dart';
 
 class SignupForm extends StatefulWidget {
   const SignupForm({super.key});

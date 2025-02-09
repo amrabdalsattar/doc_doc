@@ -1,15 +1,13 @@
-import '../../../core/widgets/actionable_text_row.dart';
-import '../logic/cubit/signup_cubit.dart';
-import 'widgets/signup_form.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/helpers/extensions.dart';
 import '../../../core/helpers/spacing.dart';
-import '../../../core/widgets/custom_button.dart';
+import '../../../core/widgets/actionable_text_row.dart';
 import '../../../core/widgets/welcome_header.dart';
 import '../../login/ui/widgets/terms_and_conditions_text.dart';
-import 'widgets/signup_bloc_listener.dart';
+import 'widgets/signup_button_bloc_consumer.dart';
+import 'widgets/signup_form.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -32,21 +30,18 @@ class SignupScreen extends StatelessWidget {
                 verticalSpace(36),
                 const SignupForm(),
                 verticalSpace(40),
-                CustomButton(
-                  title: 'Login',
-                  onPressed: () {
-                    context.read<SignupCubit>().emitSignupStates();
-                  },
-                ),
+                const SignupButtonBlocConsumer(),
                 verticalSpace(16),
                 const TermsAndConditionsText(),
                 verticalSpace(30),
-                const ActionableTextRow(
+                ActionableTextRow(
                   text: 'Already have an account?',
                   actionText: 'Login',
+                  onTap: () {
+                    context.pop();
+                  },
                 ),
                 verticalSpace(16),
-                const SignupBlocListener(),
               ],
             ),
           ),
