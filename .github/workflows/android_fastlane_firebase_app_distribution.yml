@@ -4,55 +4,31 @@ on:
   push:
     branches:
       - master
-
 jobs:
   distribute_to_firebase:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout my repo code!
-      uses: actions/checkout@v4
-
+      uses: actions/checkout@v2
     - name: Setup JDK 11
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v2
       with:
         java-version: '11'
         distribution: 'temurin'
-        
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
       with:
        channel: stable
-
-    - name: Get Flutter Dependencies
-      run: flutter pub get
-
+    
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.4.1'
-        bundler-cache: true
         working-directory: android
-
-    - name: Add Linux platform to Bundler
-      run: |
-        cd android
-        bundle lock --add-platform x86_64-linux
-
-    - name: Install Fastlane and Dependencies
-      run: |
-        cd android
-        bundle install --clean --force
 
     - name: Build and Distribute App
       env:
         FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
-      run: |
-        cd android
+      run: | 
         bundle exec fastlane android firebase_distribution
-
-    - name: Remove Gemfile.lock and Retry (if needed)
-      if: failure()
-      run: |
-        cd android
-        rm -f Gemfile.lock
-        bundle install
+      working-directory: android
