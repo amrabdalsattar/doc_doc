@@ -1,5 +1,6 @@
-import 'package:doc_doc/core/theming/colors_manager.dart';
 import 'package:flutter/services.dart';
+
+import '../theming/colors_manager.dart';
 
 class SetupManager {
   static void setupSystemUI() {

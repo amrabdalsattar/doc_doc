@@ -1,7 +1,7 @@
-import 'package:doc_doc/core/routing/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'core/routing/app_router.dart';
 import 'core/routing/routes.dart';
 import 'core/theming/themes.dart';
 
@@ -16,8 +16,8 @@ class DocDocApp extends StatelessWidget {
       builder: (_, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemesManager.lightTheme,
-        initialRoute: Routes.onBoarding,
-        onGenerateRoute: AppRouter.generateRoute,
+        initialRoute: Routes.login,
+        routes: AppRouter.getRoutes(),
       ),
     );
   }

@@ -1,12 +1,13 @@
-import 'package:doc_doc/core/helpers/extensions.dart';
-import 'package:doc_doc/core/widgets/custom_button.dart';
-import 'package:doc_doc/features/onboarding/widgets/doc_logo_and_name.dart';
-import 'package:doc_doc/features/onboarding/widgets/titled_doctor_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../core/helpers/extensions.dart';
+import '../../core/helpers/spacing.dart';
 import '../../core/routing/routes.dart';
 import '../../core/theming/text_styles.dart';
+import '../../core/widgets/custom_button.dart';
+import 'widgets/doc_logo_and_name.dart';
+import 'widgets/titled_doctor_image.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -14,35 +15,41 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.only(top: 30.h, bottom: 20.h),
-          child: Column(
-            children: [
-              const DocLogoAndName(),
-              SizedBox(height: 30.h),
-              const TitledDoctorImage(),
-              Padding(
+      body: Padding(
+        padding: EdgeInsets.only(top: 74.h, bottom: 15.h),
+        child: CustomScrollView(
+          slivers: [
+            const SliverToBoxAdapter(child: DocLogoAndName()),
+            SliverToBoxAdapter(child: verticalSpace(30)),
+            const SliverToBoxAdapter(child: TitledDoctorImage()),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: Text(
+                  "Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.",
+                  style: TextStyles.font13RegularGray,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: Column(
                   children: [
-                    Text(
-                      "Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.",
-                      style: TextStyles.font13RegularGray,
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(height: 30.h),
+                    const Spacer(),
                     CustomButton(
                       title: 'Get Started',
                       onPressed: () {
                         context.pushReplacementNamed(Routes.login);
                       },
-                    )
+                    ),
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

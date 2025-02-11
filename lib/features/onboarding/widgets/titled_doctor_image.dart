@@ -1,8 +1,8 @@
-import 'package:doc_doc/core/helpers/images.dart';
-import 'package:doc_doc/core/theming/colors_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../core/helpers/images.dart';
+import '../../../core/theming/colors_manager.dart';
 import '../../../core/theming/text_styles.dart';
 
 class TitledDoctorImage extends StatelessWidget {
