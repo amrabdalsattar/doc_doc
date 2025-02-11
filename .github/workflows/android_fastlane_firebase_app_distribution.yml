@@ -26,12 +26,6 @@ jobs:
     - name: Get Flutter Dependencies
       run: flutter pub get
 
-    - name: Add Linux platform to Bundler
-      run: |
-        cd android
-        bundle lock --add-platform x86_64-linux
-
-    
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
@@ -39,9 +33,15 @@ jobs:
         bundler-cache: true
         working-directory: android
 
-    - name: Install Fastlane Plugins
-      run: bundle exec fastlane install_plugins
-      working-directory: android
+    - name: Add Linux platform to Bundler
+      run: |
+        cd android
+        bundle lock --add-platform x86_64-linux
+
+    - name: Install Fastlane and Dependencies
+      run: |
+        cd android
+        bundle install --clean --force
 
     - name: Build and Distribute App
       env:
@@ -49,3 +49,10 @@ jobs:
       run: |
         cd android
         bundle exec fastlane android firebase_distribution
+
+    - name: Remove Gemfile.lock and Retry (if needed)
+      if: failure()
+      run: |
+        cd android
+        rm -f Gemfile.lock
+        bundle install
