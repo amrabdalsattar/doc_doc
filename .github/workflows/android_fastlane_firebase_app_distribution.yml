@@ -25,6 +25,12 @@ jobs:
 
     - name: Get Flutter Dependencies
       run: flutter pub get
+
+    - name: Add Linux platform to Bundler
+      run: |
+        cd android
+        bundle lock --add-platform x86_64-linux
+
     
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
