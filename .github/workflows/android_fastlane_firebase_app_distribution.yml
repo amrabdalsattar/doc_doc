@@ -37,7 +37,8 @@ jobs:
     - name: Install Fastlane and Dependencies
       run: |
         cd android
-        bundle install --clean --force
+        bundle install --force
+
 
     - name: Install Fastlane Plugins
       run: |
