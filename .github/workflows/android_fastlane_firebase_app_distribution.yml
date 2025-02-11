@@ -25,6 +25,10 @@ jobs:
       with:
         ruby-version: '3.4.1'
         working-directory: android
+    - name: Install Fastlane and Dependencies
+      run: |
+        cd android
+        bundle install --clean --force
 
     - name: Build and Distribute App
       env:
