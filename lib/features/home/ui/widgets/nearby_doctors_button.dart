@@ -13,6 +13,7 @@ class NearbyDoctorsButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
+          elevation: 0,
           backgroundColor: ColorsManager.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(24.r),

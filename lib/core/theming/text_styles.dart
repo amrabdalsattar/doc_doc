@@ -40,6 +40,12 @@ class TextStyles {
     color: ColorsManager.black,
   );
 
+  static TextStyle font12MediumGray = TextStyle(
+    fontSize: 13.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: ColorsManager.gray,
+  );
+
   static TextStyle font17MediumWhite = TextStyle(
     fontSize: 17.sp,
     fontWeight: FontWeightHelper.medium,
@@ -93,13 +99,21 @@ class TextStyles {
     fontWeight: FontWeightHelper.bold,
     color: ColorsManager.darkBlue,
   );
-
+  static TextStyle font18SemiBoldDarkBlue = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeightHelper.semiBold,
+    color: ColorsManager.darkBlue,
+  );
   static TextStyle font12RegularGray = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeightHelper.regular,
     color: ColorsManager.subTextGray,
   );
-
+  static TextStyle font12RegularDarkBlue = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.darkBlue,
+  );
   static TextStyle font12RegularPrimary = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeightHelper.regular,

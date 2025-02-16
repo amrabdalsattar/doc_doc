@@ -9,4 +9,5 @@ class Images {
   static const String nearbyDoctorsCardBackground =
       "assets/images/nearby_doctors_card_background.png";
   static const String femaleDoctor = "assets/images/female_doctor.png";
+  static const String generalSpecialty = "assets/images/general_specialty.png";
 }
