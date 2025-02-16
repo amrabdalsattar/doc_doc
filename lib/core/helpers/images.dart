@@ -6,4 +6,7 @@ class Images {
 
   // PNG
   static const String onboardingDoctor = "assets/images/onboarding_doctor.png";
+  static const String nearbyDoctorsCardBackground =
+      "assets/images/nearby_doctors_card_background.png";
+  static const String femaleDoctor = "assets/images/female_doctor.png";
 }

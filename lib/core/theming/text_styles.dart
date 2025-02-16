@@ -40,6 +40,12 @@ class TextStyles {
     color: ColorsManager.black,
   );
 
+  static TextStyle font17MediumWhite = TextStyle(
+    fontSize: 17.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: ColorsManager.white,
+  );
+
   static TextStyle font14MediumDarkBlue = TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeightHelper.medium,
@@ -92,5 +98,11 @@ class TextStyles {
     fontSize: 12.sp,
     fontWeight: FontWeightHelper.regular,
     color: ColorsManager.subTextGray,
+  );
+
+  static TextStyle font12RegularPrimary = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.primaryColor,
   );
 }
