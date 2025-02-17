@@ -1,8 +1,8 @@
-import 'package:doc_doc/core/helpers/spacing.dart';
-import 'package:doc_doc/features/home/ui/widgets/doctors_blue_container.dart';
-import 'package:doc_doc/features/home/ui/widgets/doctors_list_view.dart';
-import 'package:doc_doc/features/home/ui/widgets/section_header.dart';
-import 'package:doc_doc/features/home/ui/widgets/doctors_specialty_list_view.dart';
+import '../../../core/helpers/spacing.dart';
+import 'widgets/doctors_blue_container.dart';
+import 'widgets/doctors_list_view.dart';
+import 'widgets/section_header.dart';
+import 'widgets/doctors_specialty_list_view.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/home_top_bar.dart';

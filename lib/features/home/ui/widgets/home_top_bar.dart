@@ -1,6 +1,6 @@
-import 'package:doc_doc/core/helpers/images.dart';
-import 'package:doc_doc/core/helpers/spacing.dart';
-import 'package:doc_doc/core/theming/colors_manager.dart';
+import '../../../../core/helpers/images.dart';
+import '../../../../core/helpers/spacing.dart';
+import '../../../../core/theming/colors_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

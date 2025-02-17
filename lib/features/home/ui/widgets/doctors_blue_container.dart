@@ -1,6 +1,6 @@
-import 'package:doc_doc/core/helpers/images.dart';
-import 'package:doc_doc/core/helpers/spacing.dart';
-import 'package:doc_doc/features/home/ui/widgets/nearby_doctors_button.dart';
+import '../../../../core/helpers/images.dart';
+import '../../../../core/helpers/spacing.dart';
+import 'nearby_doctors_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
