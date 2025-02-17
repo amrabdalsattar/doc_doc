@@ -1,8 +1,8 @@
+import 'package:doc_doc/features/home/ui/widgets/specializations_bloc_builder.dart';
+
 import '../../../core/helpers/spacing.dart';
 import 'widgets/doctors_blue_container.dart';
-import 'widgets/doctors_list_view.dart';
 import 'widgets/section_header.dart';
-import 'widgets/doctors_specialty_list_view.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/home_top_bar.dart';
@@ -27,13 +27,7 @@ class HomeScreen extends StatelessWidget {
                 title: 'Doctor Specialty',
               ),
               verticalSpace(12),
-              const DoctorsSpecialtyListView(),
-              verticalSpace(16),
-              const SectionHeader(
-                title: 'Recommendation Doctor',
-              ),
-              verticalSpace(12),
-              const DoctorsListView()
+              const SpecializationsBlocBuilder(),
             ],
           ),
         ),
