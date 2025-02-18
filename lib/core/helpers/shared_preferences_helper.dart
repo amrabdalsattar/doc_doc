@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesHelper {
@@ -71,4 +72,32 @@ class SharedPreferencesHelper {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     return sharedPreferences.getString(key) ?? '';
   }
+
+  /// Sets secured string
+  static setSecuredString(String key, String value) async {
+    final flutterSecureStorage =
+        FlutterSecureStorage(aOptions: getAndroidOptions());
+    debugPrint('SharedPrefs helper Saved Secured String key: $key => $value');
+    await flutterSecureStorage.write(key: key, value: value);
+  }
+
+  /// Gets secured string
+  static getSecuredString(String key) async {
+    final flutterSecureStorage =
+        FlutterSecureStorage(aOptions: getAndroidOptions());
+    debugPrint('SharedPrefs helper Retrieved key: $key');
+    return await flutterSecureStorage.read(key: key) ?? '';
+  }
+
+  /// Removes all secured data
+  static removeSecuredData() async {
+    final flutterSecureStorage =
+        FlutterSecureStorage(aOptions: getAndroidOptions());
+    debugPrint('SharedPrefs helper Removed all secured data');
+    await flutterSecureStorage.deleteAll();
+  }
 }
+
+AndroidOptions getAndroidOptions() => const AndroidOptions(
+      encryptedSharedPreferences: true,
+    );

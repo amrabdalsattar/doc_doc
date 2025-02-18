@@ -42,7 +42,7 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   Future<void> saveUserToken(String token) async {
-    await SharedPreferencesHelper.setData(
+    await SharedPreferencesHelper.setSecuredString(
         SharedPreferencesKeys.userToken, token);
     DioFactory.setTokenIntoHeaderAfterLogin(token);
   }
