@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:doc_doc/core/helpers/constants.dart';
+import 'package:doc_doc/core/helpers/shared_preferences_helper.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioFactory {
@@ -23,6 +25,20 @@ class DioFactory {
     }
   }
 
+  static void addDioHeaders() async {
+    dio?.options.headers = {
+      'Accept': 'application/json',
+      'Authorization':
+          'Bearer ${await SharedPreferencesHelper.getString(SharedPreferencesKeys.userToken)}',
+    };
+  }
+
+  static void setTokenIntoHeaderAfterLogin(String token) {
+    dio?.options.headers = {
+      'Authorization': 'Bearer $token',
+    };
+  }
+
   static void addDioInterceptor() {
     dio?.interceptors.add(
       PrettyDioLogger(
@@ -31,13 +47,5 @@ class DioFactory {
         responseHeader: true,
       ),
     );
-  }
-
-  static void addDioHeaders() {
-    dio!.options.headers = {
-      'Accept': 'application/json',
-      'Authorization':
-          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3ZjYXJlLmludGVncmF0aW9uMjUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzM5NzUzMzk5LCJleHAiOjE3Mzk4Mzk3OTksIm5iZiI6MTczOTc1MzM5OSwianRpIjoiNWYyQ3BiTEhaYmc2RmQxaiIsInN1YiI6IjMyNjQiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.WPizQiGVsE0Hk8arKQdIHW7MZp1wC9dml40SUMJJ4UE',
-    };
   }
 }

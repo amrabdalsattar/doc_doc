@@ -1,3 +1,4 @@
+import 'package:doc_doc/core/helpers/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,7 +17,7 @@ class DocDocApp extends StatelessWidget {
       builder: (_, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemesManager.lightTheme,
-        initialRoute: Routes.home,
+        initialRoute: isLoggedIn ? Routes.home : Routes.login,
         routes: AppRouter.getRoutes(),
       ),
     );
