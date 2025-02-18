@@ -6,6 +6,7 @@ import 'core/helpers/setup_manager.dart';
 import 'doc_app.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   SetupManager.setupSystemUI();
   await ScreenUtil.ensureScreenSize();
 

@@ -1,3 +1,7 @@
+import 'package:doc_doc/core/helpers/constants.dart';
+import 'package:doc_doc/core/helpers/shared_preferences_helper.dart';
+import 'package:doc_doc/core/networking/dio_factory.dart';
+import 'package:doc_doc/features/login/data/models/login_response.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,13 +28,22 @@ class LoginCubit extends Cubit<LoginState> {
         password: passwordController.text,
       ));
 
-      response.when(success: (loginResponse) {
-        emit(LoginState.success(loginResponse));
+      response.when(success: (loginResponse) async {
+        if (loginResponse is LoginResponse) {
+          await saveUserToken(loginResponse.userData!.token ?? '');
+          emit(LoginState.success(loginResponse));
+        }
       }, failure: (error) {
         emit(LoginState.error(
             errorMessage:
                 error.apiErrorModel.message ?? "Something went wrong!"));
       });
     }
+  }
+
+  Future<void> saveUserToken(String token) async {
+    await SharedPreferencesHelper.setSecuredString(
+        SharedPreferencesKeys.userToken, token);
+    DioFactory.setTokenIntoHeaderAfterLogin(token);
   }
 }
