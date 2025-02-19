@@ -1,11 +1,10 @@
-import 'package:doc_doc/features/home/ui/widgets/specializations_bloc_builder.dart';
+import 'package:flutter/material.dart';
 
 import '../../../core/helpers/spacing.dart';
 import 'widgets/doctors_blue_container.dart';
-import 'widgets/section_header.dart';
-import 'package:flutter/material.dart';
-
 import 'widgets/home_top_bar.dart';
+import 'widgets/section_header.dart';
+import 'widgets/specializations_bloc_builder.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

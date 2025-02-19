@@ -1,4 +1,4 @@
-import 'package:doc_doc/features/home/data/repos/specializations_repo.dart';
+import '../data/repos/specializations_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'specializations_state.dart';

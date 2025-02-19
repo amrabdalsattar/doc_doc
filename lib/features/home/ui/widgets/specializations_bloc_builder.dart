@@ -1,4 +1,4 @@
-import 'package:doc_doc/features/home/data/models/specializations_response_model.dart';
+import '../../data/models/specializations_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

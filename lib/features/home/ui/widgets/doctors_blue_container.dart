@@ -1,10 +1,9 @@
-import '../../../../core/helpers/images.dart';
-import '../../../../core/helpers/spacing.dart';
-import 'nearby_doctors_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/helpers/images.dart';
 import '../../../../core/theming/text_styles.dart';
+import 'nearby_doctors_button.dart';
 
 class DoctorsBlueContainer extends StatelessWidget {
   const DoctorsBlueContainer({super.key});
@@ -16,30 +15,34 @@ class DoctorsBlueContainer extends StatelessWidget {
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
-          Container(
-            width: double.infinity,
-            height: 165.h,
-            padding: EdgeInsets.only(
-              top: 12.h,
-              bottom: 15.h,
-              left: 18.w,
-            ),
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(Images.nearbyDoctorsCardBackground),
+          AspectRatio(
+            aspectRatio: 343 / 167,
+            child: Container(
+              padding: EdgeInsets.only(
+                top: 12.h,
+                bottom: 15.h,
+                left: 18.w,
               ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Book and\nschedule with\nnearest doctor',
-                    style: TextStyles.font17MediumWhite),
-                verticalSpace(15),
-                const Expanded(
-                  child: NearbyDoctorsButton(),
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(Images.nearbyDoctorsCardBackground),
                 ),
-              ],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    flex: 10,
+                    child: Text('Book and\nschedule with\nnearest doctor',
+                        style: TextStyles.font17MediumWhite),
+                  ),
+                  const Expanded(
+                    flex: 4,
+                    child: NearbyDoctorsButton(),
+                  ),
+                ],
+              ),
             ),
           ),
           Positioned(

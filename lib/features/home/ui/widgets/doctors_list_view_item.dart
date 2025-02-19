@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:doc_doc/core/widgets/loading_indicator.dart';
-import 'package:doc_doc/features/home/data/models/specializations_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/text_styles.dart';
+import '../../../../core/widgets/loading_indicator.dart';
+import '../../data/models/specializations_response_model.dart';
 
 class DoctorsListViewItem extends StatelessWidget {
   final Doctor? doctor;
