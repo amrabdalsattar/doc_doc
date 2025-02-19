@@ -1,5 +1,6 @@
-import 'package:doc_doc/features/home/data/models/specializations_response_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../data/models/specializations_response_model.dart';
 
 part 'specializations_state.freezed.dart';
 

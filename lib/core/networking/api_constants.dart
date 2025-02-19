@@ -7,6 +7,9 @@ class ApiConstants {
 
   // Home Endpoints
   static const String specializations = 'specialization/index';
+
+  //
+  static const Duration timeOut = Duration(seconds: 20);
 }
 
 class ApiErrors {

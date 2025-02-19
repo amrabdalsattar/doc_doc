@@ -1,4 +1,4 @@
-import 'package:doc_doc/features/login/data/models/login_response.dart';
+import '../../data/models/login_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'login_state.freezed.dart';
