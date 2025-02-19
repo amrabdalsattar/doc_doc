@@ -1,7 +1,5 @@
 import 'extensions.dart';
 
-import 'package:flutter/material.dart';
-
 import '../networking/dio_factory.dart';
 import 'shared_preferences/secured_storage_helper.dart';
 import 'shared_preferences/shared_preferences_keys.dart';
@@ -26,12 +24,11 @@ abstract class TokenHelper {
 
   static checkIfUserIsLoggedIn() async {
     String? userToken = await getSecuredUserToken();
-    debugPrint(userToken);
+
     if (!userToken.isNullOrEmpty()) {
       isLoggedIn = true;
     } else {
       isLoggedIn = false;
     }
-    debugPrint('is logged in : $isLoggedIn');
   }
 }
