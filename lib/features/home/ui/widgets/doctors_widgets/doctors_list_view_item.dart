@@ -2,10 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/helpers/spacing.dart';
-import '../../../../core/theming/text_styles.dart';
-import '../../../../core/widgets/loading_indicator.dart';
-import '../../data/models/specializations_response_model.dart';
+import '../../../../../core/helpers/spacing.dart';
+import '../../../../../core/theming/text_styles.dart';
+import '../../../data/models/specializations_response_model.dart';
 
 class DoctorsListViewItem extends StatelessWidget {
   final Doctor? doctor;
@@ -22,7 +21,6 @@ class DoctorsListViewItem extends StatelessWidget {
             child: CachedNetworkImage(
               imageUrl:
                   'https://t4.ftcdn.net/jpg/02/60/04/09/360_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg',
-              placeholder: (context, url) => const LoadingIndicator(),
               width: 110.w,
               height: 120.h,
               fit: BoxFit.cover,

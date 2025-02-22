@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/helpers/images.dart';
-import '../../../../core/theming/text_styles.dart';
-import 'nearby_doctors_button.dart';
+import '../../../../../core/helpers/images.dart';
+import '../../../../../core/theming/text_styles.dart';
+import '../nearby_doctors_button.dart';
 
 class DoctorsBlueContainer extends StatelessWidget {
   const DoctorsBlueContainer({super.key});
