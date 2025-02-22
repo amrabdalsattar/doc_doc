@@ -31,6 +31,7 @@ class DioFactory {
 
   static void setTokenIntoHeaderAfterLogin(String token) {
     dio?.options.headers = {
+      'Accept': 'application/json',
       'Authorization': 'Bearer $token',
     };
   }

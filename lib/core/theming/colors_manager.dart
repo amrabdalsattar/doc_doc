@@ -15,4 +15,7 @@ class ColorsManager {
   static const Color lighterGray = Color(0xFFEDEDED);
   static const Color moreLighterGray = Color(0xFFF5F5F5);
   static const Color lightBlue = Color(0xFFF4F8FF);
+
+  static const Color shimmerMidGrey = Color.fromARGB(18, 95, 95, 96);
+  static const Color shimmerLiteGrey = Color.fromARGB(34, 95, 95, 96);
 }
