@@ -60,3 +60,4 @@ jobs:
         cd android
         rm -f Gemfile.lock
         bundle install
+        
