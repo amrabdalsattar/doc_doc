@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../features/home/logic/specializations_cubit.dart';
 import '../../features/home/ui/home_screen.dart';
 import '../../features/login/logic/cubit/login_cubit.dart';
 import '../../features/login/ui/login_screen.dart';
@@ -16,14 +16,18 @@ class AppRouter {
     final routes = {
       Routes.onBoarding: (_) => const OnboardingScreen(),
       Routes.login: (context) => BlocProvider(
-            create: (_) => getIt<LoginCubit>(),
+            create: (_) => LoginCubit(getIt()),
             child: const LoginScreen(),
           ),
       Routes.signup: (context) => BlocProvider(
-            create: (_) => getIt<SignupCubit>(),
+            create: (_) => SignupCubit(getIt()),
             child: const SignupScreen(),
           ),
-      Routes.home: (_) => const HomeScreen()
+      Routes.home: (_) => BlocProvider(
+            create: (context) =>
+                SpecializationsCubit(getIt())..getSpecializations(),
+            child: const HomeScreen(),
+          )
     };
 
     return routes;

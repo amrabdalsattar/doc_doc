@@ -57,18 +57,24 @@ dependencies:
   pretty_dio_logger: ^1.4.0
 
   # Caching
+  shared_preferences: ^2.3.3
+  flutter_secure_storage: ^9.2.4
+    
+  # localization
   easy_localization: ^3.0.7
   intl: ^0.19.0
-
-  # localization
-  shared_preferences: ^2.3.3
 
   # Splash Screen
   flutter_native_splash: ^2.4.3
   
   # SVG Rendering
   flutter_svg: ^2.0.16
+
+  # Firebase
   firebase_core: ^3.10.1
+
+  # Shimmer effect
+  shimmer: ^3.0.0
 
 dev_dependencies:
   build_runner: ^2.4.13

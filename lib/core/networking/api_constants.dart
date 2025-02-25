@@ -1,7 +1,15 @@
 class ApiConstants {
   static const String apiBaseUrl = 'https://vcare.integration25.com/api/';
+
+  // Authentication Endpoints
   static const String login = 'auth/login';
   static const String signup = 'auth/register';
+
+  // Home Endpoints
+  static const String specializations = 'specialization/index';
+
+  //
+  static const Duration timeOut = Duration(seconds: 20);
 }
 
 class ApiErrors {

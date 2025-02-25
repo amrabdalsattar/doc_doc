@@ -23,7 +23,8 @@ class LoginButtonBlocConsumer extends StatelessWidget {
             context.pushReplacementNamed(Routes.home);
           },
           error: (error) {
-            DialogsHelper.showErrorDialog(context, error);
+            DialogsHelper.showErrorDialog(
+                context, error.message ?? 'Unknown error occurred');
           },
         );
       },

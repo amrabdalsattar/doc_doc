@@ -1,3 +1,5 @@
+import '../../../../core/helpers/token_helper.dart';
+import '../../../../core/networking/dio_factory.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,13 +34,16 @@ class SignupCubit extends Cubit<SignupState> {
       );
       response.when(
         success: (signupResponse) {
+          TokenHelper.saveUserToken(signupResponse.userData!.token ?? '');
+
+          DioFactory.setTokenIntoHeaderAfterLogin(
+              signupResponse.userData!.token ?? '');
+
           emit(SignupState.signupSuccess(signupResponse));
         },
-        failure: (error) {
+        failure: (apiErrorModel) {
           emit(
-            SignupState.signupFailure(
-              error: error.apiErrorModel.message ?? 'Something went wrong!',
-            ),
+            SignupState.signupFailure(apiErrorModel),
           );
         },
       );

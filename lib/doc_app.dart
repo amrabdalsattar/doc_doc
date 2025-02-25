@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'core/helpers/token_helper.dart';
 import 'core/routing/app_router.dart';
 import 'core/routing/routes.dart';
 import 'core/theming/themes.dart';
@@ -16,7 +17,7 @@ class DocDocApp extends StatelessWidget {
       builder: (_, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemesManager.lightTheme,
-        initialRoute: Routes.login,
+        initialRoute: isLoggedIn ? Routes.home : Routes.login,
         routes: AppRouter.getRoutes(),
       ),
     );
