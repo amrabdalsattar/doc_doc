@@ -1,5 +1,4 @@
 import 'package:doc_doc/core/helpers/extensions.dart';
-import 'package:doc_doc/core/networking/api_error_handler/api_error_handler.dart';
 
 import '../data/models/specializations_response_model.dart';
 import '../data/repos/specializations_repo.dart';
@@ -27,9 +26,8 @@ class SpecializationsCubit extends Cubit<SpecializationsState> {
           SpecializationsState.specializationsLoaded(specializationsList),
         );
       },
-      failure: (error) => emit(
-        SpecializationsState.specializationsError(
-            message: error.apiErrorModel.message ?? 'Something went wrong'),
+      failure: (apiErrorModel) => emit(
+        SpecializationsState.specializationsError(apiErrorModel),
       ),
     );
   }
@@ -40,9 +38,7 @@ class SpecializationsCubit extends Cubit<SpecializationsState> {
 
     if (specializationDoctorsList.isNullOrEmpty()) {
       emit(
-        SpecializationsState.doctorsError(
-          ErrorHandler.handle('No doctors found'),
-        ),
+        const SpecializationsState.doctorsError(),
       );
     } else {
       emit(

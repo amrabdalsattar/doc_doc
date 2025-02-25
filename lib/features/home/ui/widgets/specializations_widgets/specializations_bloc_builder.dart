@@ -22,7 +22,8 @@ class SpecializationsBlocBuilder extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           specializationsLoading: () => setupLoading(),
-          specializationsError: (errorMessage) => Text(errorMessage),
+          specializationsError: (apiErrorModel) =>
+              Text(apiErrorModel.getAllErrorMessages()),
           specializationsLoaded: (specializations) {
             return SpecialtiesListView(specializations: specializations ?? []);
           },
