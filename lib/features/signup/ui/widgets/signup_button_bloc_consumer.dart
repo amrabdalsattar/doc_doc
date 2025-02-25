@@ -21,8 +21,9 @@ class SignupButtonBlocConsumer extends StatelessWidget {
           current is SignupSuccess,
       listener: (context, state) {
         state.whenOrNull(
-          signupFailure: (error) {
-            DialogsHelper.showErrorDialog(context, error);
+          signupFailure: (apiErrorModel) {
+            DialogsHelper.showErrorDialog(
+                context, apiErrorModel.getAllErrorMessages());
           },
           signupSuccess: (success) {
             context.pushReplacementNamed(Routes.home);

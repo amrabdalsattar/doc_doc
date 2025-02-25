@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:doc_doc/core/helpers/token_helper.dart';
 import 'package:retrofit/retrofit.dart' as retrofit;
 import 'package:retrofit/retrofit.dart';
 
